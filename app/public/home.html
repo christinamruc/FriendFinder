@@ -4,34 +4,125 @@
 	<meta charset="UTF-8">
 	<title>Find a Friend</title>
 	<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
 
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <script src="https://use.fontawesome.com/0bf9ac1b8c.js"></script>
+
+    <!-- jQuery Reference -->
+    <script src="https://code.jquery.com/
+    jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 <body>
-	<div>
 		<div class="container">
-			<div class="jumbotron">
-				<h1 class=""><i class="glyphicon glyphicon-heart" aria-hidden="true"></i>  Find a Date</h1>
+			<div class="page-header">
+				<h1 class="text-center"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i>  Find a Furr-Ever Friend</h1>
 					<br>
-					<h2 class="">Answer a few basic questions.</h2>
+					<h2 class="text-center">Answer a few basic questions.</h2>
 					<h2 class="">Let's see who you are matched with!</h2>
 					</br>
+
+				</div>
 			</div>
-		<div class="">
-			<a href="/survey"><button type="button" class="btn btn lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span> Go to Questionnaire</h4></button></a>
+			<div class="row">
+			<div class="col-sm-3" id="imageHolder">
+			<div class="slider" id="main-slider">
+			<div class="slider-wrapper">
+				<img src="assets/images/oliver.jpg" width="350" height="300" class="slide">
+				<img src="assets/images/pax.jpg" width="350" height="300" class="slide">
+				<img src="assets/images/stratus.jpg" width="350" height="300" class="slide">
+				<img src="assets/images/zoe.jpg" width="350" height="300" class="slide">
+				<img src="assets/images/suzie.jpg" width="350" height="300" class="slide">
+				<img src="assets/images/jaxon.jpg" width="350" height="300" class="slide">
+				<img src="assets/images/smirky.jpg" width="350" height="300" class="slide">
+			</div>
+			</div>
+			</div>
+			<div class="col-sm-4" id="blank">
+			<div class="col-sm-4" id="text-center">
+				<a href="/survey"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span> Go to Questionnaire</h4></button></a>
 		</div>
 		</div>
-	</div>
 
 <footer>
-	<div class="container">
+	<div class="footer">
 		<p><a href="/api/friends">API Friends List</a> | <a href="http:git@github.com:https://github.com/christinamruc/FriendFinder">GitHub Repo</a></p>
 	</div>	
 </footer>
+<script>
+	(function() {
+	
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+	
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+			
+			this.action();
+			this.stopStart();	
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+			
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+				
+			}, 4000);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+				
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+				
+			}, false);
+		}
+		
+		
+	};
+	
+	document.addEventListener( "DOMContentLoaded", function() {
+		
+		var slider = new Slideshow( "#main-slider" );
+		
+	});
+	
+	
+})();
+</script>
 </body>
 </html>
