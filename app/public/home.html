@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<html lang="en">
 	<title>Find a Friend</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- fontawesome -->
-    <script src="https://use.fontawesome.com/0bf9ac1b8c.js"></script>
+    <!-- <script src="https://use.fontawesome.com/0bf9ac1b8c.js"></script> -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
 
     <!-- jQuery Reference -->
     <script src="https://code.jquery.com/
@@ -17,38 +22,39 @@
     crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
 </head>
 <body>
 		<div class="container">
 			<div class="page-header">
-				<h1 class="text-center"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i>  Find a Furr-Ever Friend</h1>
+				<h1 class="text-center"><i class="fas fa-paw"></i>  Find a Furr-Ever Friend</h1>
 					<br>
-					<h2 class="text-center">Answer a few basic questions.</h2>
-					<h2 class="">Let's see who you are matched with!</h2>
+					<h2 class="text-center">Answer a few basic questions to see who you are matched with!</h2>
 					</br>
 
+			</div>
+		
+
+			<div class="col-xs-4" id="imageHolder">
+				<div class="slider" id="main-slider">
+					<div class="slider-wrapper">
+						<img src="assets/images/oliver.JPG" width="350" height="300" class="slide">
+						<img src="assets/images/pax.JPG" width="350" height="300" class="slide">
+						<img src="assets/images/stratus.JPG" width="350" height="300" class="slide">
+						<img src="assets/images/zoe.JPG" width="350" height="300" class="slide">
+						<img src="assets/images/suzie.jpg" width="350" height="300" class="slide">
+						<img src="assets/images/jaxon.JPG" width="350" height="300" class="slide">
+						<img src="assets/images/smirky.JPG" width="350" height="300" class="slide">
+					</div>
 				</div>
 			</div>
-			<div class="row">
-			<div class="col-sm-3" id="imageHolder">
-			<div class="slider" id="main-slider">
-			<div class="slider-wrapper">
-				<img src="assets/images/oliver.JPG" width="350" height="300" class="slide">
-				<img src="assets/images/pax.JPG" width="350" height="300" class="slide">
-				<img src="assets/images/stratus.JPG" width="350" height="300" class="slide">
-				<img src="assets/images/zoe.JPG" width="350" height="300" class="slide">
-				<img src="assets/images/suzie.jpg" width="350" height="300" class="slide">
-				<img src="assets/images/jaxon.JPG" width="350" height="300" class="slide">
-				<img src="assets/images/smirky.JPG" width="350" height="300" class="slide">
-			</div>
-			</div>
-			</div>
-			<div class="col-sm-4" id="blank">
-			<div class="col-sm-4" id="text-center">
+		
+		
+			<div class="col-xs-4"> <!-- removed id="text-center" -->
 				<a href="/survey"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span> Go to Questionnaire</h4></button></a>
-		</div>
+			</div>
+			
 		</div>
 
 <footer>
@@ -56,6 +62,8 @@
 		<p><a href="/api/friends">API Friends List</a> | <a href="http:git@github.com:https://github.com/christinamruc/FriendFinder">GitHub Repo</a></p>
 	</div>	
 </footer>
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 <script>
 	(function() {
 	
@@ -124,5 +132,7 @@
 	
 })();
 </script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
